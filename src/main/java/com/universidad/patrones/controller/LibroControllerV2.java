@@ -1,15 +1,24 @@
 package com.universidad.patrones.controller;
 
-import com.universidad.patrones.dto.*;
+import java.util.List;
+import java.util.NoSuchElementException;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.universidad.patrones.dto.LibroRequestDTO;
+import com.universidad.patrones.dto.LibroResponseDTO;
 import com.universidad.patrones.mapper.LibroMapper;
 import com.universidad.patrones.model.Libro;
 import com.universidad.patrones.service.LibroService;
 
 import jakarta.validation.Valid;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.*;
 
 @RestController
 @RequestMapping("/api/v2/libros")
@@ -41,10 +50,10 @@ public class LibroControllerV2 {
 
     @GetMapping("/{id}")
     public ResponseEntity<LibroResponseDTO> obtener(@PathVariable Long id) {
-        return service.findById(id)
-                .map(mapper::toResponse)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    Libro libro = service.findById(id)
+            .orElseThrow(() -> new NoSuchElementException("Libro no encontrado: " + id));
+
+    return ResponseEntity.ok(mapper.toResponse(libro));
     }
 
     @DeleteMapping("/{id}")
