@@ -27,9 +27,9 @@ Maven
 
 ▶️ Cómo Ejecutar el Proyecto
 Clonar el repositorio:
-git clone https://github.com/TU-USUARIO/apellido-post2-u5.git
+git clone https://github.com/DiegoArmandoCayetano/bautista-post2-u5.git
 Entrar al proyecto:
-cd apellido-post2-u5
+cd bautista-post2-u5
 Ejecutar la aplicación:
 mvn spring-boot:run
 
@@ -71,22 +71,28 @@ DELETE /api/v2/libros/{id}
   "error": "El ISBN ya existe"
 }
 
-🧪 Evidencias (Pruebas con Postman en carpeta "docs") 
-✅ Crear libro correctamente (201)
+📸 Evidencias (Pruebas con Postman en carpeta "docs") 
 
-❌ Crear libro con ISBN duplicado (400)
+### ✅ Crear libro correctamente (201)
+![Crear libro](docs/Post-ok.PNG)
 
-❌ Validación de título obligatorio (400)
+### ❌ ISBN duplicado (400)
+![ISBN duplicado](docs/Post-duplicado.PNG)
 
-❌ Error de validación (@Valid)
+### ❌ Título obligatorio (400)
+![Título obligatorio](docs/Post-tituloObligatorio.PNG)
 
-✅ Listar libros (200)
+### ❌ Error de validación (400)
+![Validación](docs/Post-validacion.PNG)
 
-![GET listar](docs/GET-Listar libros.PNG)
+### 📄 Listar libros (GET)
+![Listar libros](docs/GET-Listar libros.PNG)
 
-❌ Buscar libro inexistente (404)
+### ❌ Buscar libro inexistente (404)
+![Error 404](docs/get-404.PNG)
 
-✅ Eliminar libro (204)
+### 🗑️ Eliminar libro (204)
+![Delete](docs/Delete-postman.PNG)
 
 
 👨‍💻 Autor
