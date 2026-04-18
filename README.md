@@ -86,7 +86,7 @@ DELETE /api/v2/libros/{id}
 ![Validación](docs/Post-validacion.PNG)
 
 ### 📄 Listar libros (GET)
-![Listar libros](docs/GET-Listar libros.PNG)
+![Listar libros](docs/GET-Listar_libros.PNG)
 
 ### ❌ Buscar libro inexistente (404)
 ![Error 404](docs/get-404.PNG)
